@@ -92,7 +92,7 @@ class Compactor {
   public function compactAll($baseFile) {
     $before = get_included_files();
     include $baseFile;
-    $this->basepath = dirname($baseFile);
+    $this->basepath = dirname(realpath($baseFile));
     $this->excludes = array_unique($this->excludes);
     
     $files = array_diff(get_included_files(),$before);
